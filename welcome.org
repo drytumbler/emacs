@@ -1,0 +1,267 @@
+#+TITLE: my emacs launch page
+#+AUTHOR: R.U.
+#+STARTUP: content logdrawer indent
+#+TAGS: HOME(h) WOLV(v) WORK(w) EXAMPLE(e)
+ ____________________________________________________________________________________
+			*** Today is <Wednesday 13 Nov 24> ***
+        	                [[elisp:calendar][Open the calendar]]
+                         
+* Welcome Ruben!
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+** Controls
+M-RET		New of same type at point (split)
+C-RET		New of same type below this (add)
+M-left/right	Change heading level
+C-c C-</>		Change heading and all children level
+C-v / M-v		Scroll up / down
+C-c a		Open agenda
+C-c C-c		Use checklists
+C-c C-q		Manage tags
+C-c C-w		Manage headlines
+C-c C-z		Take notes
+* Let us check the agenda for today:
+:PROPERTIES:
+:visibility: children
+:END:
+
+** Todays plans [0/1]
+:LOGBOOK:
+- Note taken on [2024-07-04 do 20:23] \\
+  Updated awesomeWM color-scheme
+  Sys-tag + run.sh script
+  Added alacritty.toml + userChrome.css
+- Note taken on [2024-07-01 ma 14:45] \\
+  heavy soukous
+- Note taken on [2024-07-01 ma 14:30] \\
+  Picking the bass
+- Note taken on [2024-07-01 ma 14:12] \\
+  Pauze
+- Note taken on [2024-07-01 ma 14:11] \\
+  Testing notes
+:END:
+*** TODO BEZIG planning - emacs - welcome.org
+  - todo's op punt - keep it simple
+  - per file bekijken? kleuren in config?
+  - mogelijkheid om per headline te doen?
+  - archiving and logging
+
+  - awesome
+    
+** Ongoing [0/2]
+*** TODO Psysense [0/1]
+:LOGBOOK:
+- Note taken on [2024-07-01 ma 16:14] \\
+  task created
+:END:
+**** FINISH bestanden verzamelen en controleren
+DEADLINE: <2024-07-08 ma>
+*** DRINGEND AUTO !!!!
+DEADLINE: <2024-07-31 wo>
+** Upcoming [0/1]
+**** TODO buitenschrijnwerk velzeke                              :velzeke:
+:LOGBOOK:
+- Note taken on [2024-07-01 ma 16:01] \\
+  test
+:END:
+
+***** planning [0/3]                                      :broeders:mama:
+DEADLINE: <2024-07-08 ma>
+:LOGBOOK:
+- Note taken on [2024-07-01 ma 15:59] \\
+  Bericht whatsapp gestuurd
+:END:
+1. [ ] behandeling?
+2. [ ] wanneer?
+   - mooi weer vanaf 16 juli !
+   - https://www.weer1.com/europe/belgium/east-flanders/zottegem?page=long-range
+   - wttr.in
+3. [ ] met wie?
+   - Ruben -> vanaf 16 juli ?
+   - Boris x
+   - Lukas x
+   - Berdien x
+     
+***** uitvoering
+:benodigdheden:
+  + aanwezig:
+  + klaarleggen:
+  + aankopen:
+:end:   
+:taakverdeling:
+
+:end:
+** Archive [1/1]
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+:LOGBOOK:
+- Note taken on [2024-07-01 ma 02:35] \\
+  notes....
+- Note taken on [2024-07-01 ma 02:32] \\
+  C-c C-z		Take a note
+  C-c C-c		Store note
+  C-c C-k		Cancel note
+:END:
+*** DONE [[file:wolv.org][WOLV]]
+:LOGBOOK:
+- Note taken on [2024-07-01 ma 16:12] \\
+  created [[file:wolv.org][wolv.org]]
+:END:
+
+* .config
+:PROPERTIES:
+:VISIBILITY: all
+:END:
+
+- [[file:~/.emacs.d.old/config.org][emacs config.org.old]]
+- [[file:init.el][emacs init.el]]
+- [[file:.config/awesome/rc.lua][awesome rc.lua]]
+- [[file:.config/awesome/theme.lua][awesome theme.lua]]
+- [[file:.bashrc][.bashrc]]
+- [[file:.xinitrc][.xinitrc]]
+- [[file:.mozilla/firefox/mo0dp4xy.default-release/chrome/userChrome.css][userChrome.css]]
+- [[file:.config/alacritty/alacritty.toml][alacritty.toml]]
+
+* Research [2/2]
+** DONE eww
+** DONE wttr.in
+* Concepts
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+** headlines / outline
+** todo / priority
+** schedule, deadlines & agenda view
+
+* COMMENT Agenda examples                                           :EXAMPLE:
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+** GEREGELD Keys
+C-c a 	Agenda menu
+
+C-c a a	Basic agenda view
+Shift-F 	follow-mode
+f and b 	jump weeks
+n and p 	jump items
+
+C-c C-d	Deadline
+C-c C-s	Schedule
+
+C-c [ 	(org-agenda-file-to-front)
+
+    Add current file to the list of agenda files. The file is added to the front of the list. If it was already in the list, it is moved to the front. With a prefix argument, file is added/moved to the end.
+
+C-c ] 	(org-remove-file)
+
+    Remove current file from the list of agenda files.
+
+C-' or C-, 	(org-cycle-agenda-files)
+
+    Cycle through agenda file list, visiting one file after the other.
+
+
+*** repetitie (wekelijks)
+SCHEDULED: <2024-07-01 ma +1w>
+
++1w	next in n (w, d, m, y) from scheduled date
+++1w	next in n (w, d, m, y) from this date (today)
+.+1w	next in n (w, d, m, y) from the moment marked done
+
+** TODO Current affairs [0/3]
+*** UITGESTELD affair 1
+DEADLINE: <2024-07-02 di>
+
+*** BEZIG affair 2
+SCHEDULED: <2024-06-30 zo> DEADLINE: <2024-07-04 do>
+
+**** code
+#+begin_src elisp
+;; ====================
+;; insert date and time
+
+(defvar current-date-time-format "%a %d %b %Y %H:%M:%S %Z"
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+(defvar current-time-format "%H:%M:%S"
+  "Format of date to insert with `insert-current-time' func.
+Note the weekly scope of the command's precision.")
+
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+       (interactive)
+       (insert "==========\n")
+;       (insert (let () (comment-start)))
+       (insert (format-time-string current-date-time-format (current-time)))
+       (insert "\n")
+       )
+
+(defun insert-current-time ()
+  "insert the current time (1-week scope) into the current buffer."
+       (interactive)
+       (insert (format-time-string current-time-format (current-time)))
+       (insert "\n")
+       )
+#+end_src
+
+#+RESULTS:
+: insert-current-time
+
+**** test
+==========
+zo 30 jun 2024 15:59:25 CEST
+#+begin_src elisp
+  (setq org-agenda-span 10) ;; added to config.org 
+#+end_src
+
+#+RESULTS:
+: 10
+
+
+*** UITGESTELD [#A] new (affair 3)
+SCHEDULED: <2024-07-07 zo>
+
+* config
+#+BEGIN_SRC emacs-lisp
+  
+
+
+
+
+
+#+END_SRC
+* compiler warnings
+:LOGBOOK:
+- Note taken on [2024-07-11 do 09:59] \\
+  ■  Warning (comp): undo-tree.el:1182:16: Warning: ‘max-specpdl-size’ is an obsolete variable (as of 29.1).
+   ■  Warning (comp): undo-tree.el:2243:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:2452:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:3027:14: Warning: ‘registerv-make’ is an obsolete function (as of 27.1); Use your own type with methods on register-val-(insert|describe|jump-to)
+   ■  Warning (comp): undo-tree.el:1182:16: Warning: ‘max-specpdl-size’ is an obsolete variable (as of 29.1).
+   ■  Warning (comp): undo-tree.el:2243:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:2452:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:3027:14: Warning: ‘registerv-make’ is an obsolete function (as of 27.1); Use your own type with methods on register-val-(insert|describe|jump-to)
+   ■  Warning (comp): undo-tree.el:1182:16: Warning: ‘max-specpdl-size’ is an obsolete variable (as of 29.1).
+   ■  Warning (comp): undo-tree.el:2243:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:2452:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:3027:14: Warning: ‘registerv-make’ is an obsolete function (as of 27.1); Use your own type with methods on register-val-(insert|describe|jump-to)
+   ■  Warning (comp): undo-tree.el:1182:16: Warning: ‘max-specpdl-size’ is an obsolete variable (as of 29.1).
+   ■  Warning (comp): undo-tree.el:2243:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:2452:16: Warning: ‘undo-elt-crosses-region’ is an obsolete function (as of 25.1).
+   ■  Warning (comp): undo-tree.el:3027:14: Warning: ‘registerv-make’ is an obsolete function (as of 27.1); Use your own type with methods on register-val-(insert|describe|jump-to)
+:END:
+
+* locals variables                                                  :EXAMPLE:
+# Local Variables:
+# time-stamp-line-limit: 1000
+# time-stamp-format: "%A %d %b %y"
+# time-stamp-active: t
+# time-stamp-start: "Today is <"
+# time-stamp-end: ">"
+# eval: (time-stamp)
+# End:

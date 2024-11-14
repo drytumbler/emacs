@@ -1,0 +1,85 @@
+ 
+#+begin_src elisp 
+
+(defun display-color (name color)
+    "Insert a string with the specified COLOR."
+    (interactive "sEnter color name or hex code: ")
+    (let ((text (format "This is the color %s: %s" name color))
+          (face `((t (:foreground ,color)))))
+      (insert (propertize text 'face face))
+      (insert "\n")))
+
+  (defun display-color-block (color)
+    "Insert a block of text with the specified background COLOR."
+    (interactive "sEnter color name or hex code: ")
+    (let ((text "      ")
+          (face `((t (:background ,color)))))
+      (insert (propertize text 'face face))
+      (insert "\n")))
+
+#+end_src
+
+#+begin_src elisp
+
+(setq colors '(
+  ("#d3c011" . "Mango Yellow")
+  ("#222222" . "Antracite")
+  ("#ddddbb" . "Egg Green")
+  ("#aaaa88" . "Arabic Khaki")
+  ("#434112" . "Wild Khaki")
+  ("#262702" . "Cripple Creek")
+  ("#272602" . "Flanders Fields")
+  ("#dddddd" . "Light Grey")
+  ("#eedd82" . "Dulce Vanilla")
+  ("#aaaaaa" . "Soft Grey")
+  ("#d3a011" . "Clementine Orange")
+  ("#34dddd" . "Holy Cyan")
+  ("#06aacc" . "Apple Blue")
+  ("#16bbde" . "Soft Sky")
+  ("#16fbde" . "Aquarius")
+  ("#addd37" . "Pleasant Lime")
+  ("#ee4444" . "Dim Persian")
+  ("#ffa07a" . "Light Salmon") 
+  ("#37dd37" . "Approval Green")
+  ("#dd3227" . "Harsh Red")
+  ("#151505" . "Dark Mud")))
+
+#+end_src
+
+#+begin_src  elisp
+
+(defun process-color (color-pair)
+    "Process each color in the list."
+    (let ((color (car color-pair))
+          (name (cdr color-pair)))
+      ;; Replace this with the function you want to run on each color
+      (display-color name color)
+      (display-color-block color)))
+
+#+end_src
+
+(mapcar 'process-color colors)
+
+This is the color Light Grey: 		#dddddd      
+This is the color Soft Grey: 		#aaaaaa      
+This is the color Arabic Khaki: 	#aaaa88      
+This is the color Egg Green: 		#ddddbb      
+This is the color Dulce Vanilla: 	#eedd82      
+This is the color Mango Yellow: 	#d3c011      
+This is the color Clementine Orange: 	#d3a011      
+This is the color Light Salmon: 	#ffa07a      
+This is the color Dim Persian: 		#ee4444      
+This is the color Harsh Red: 		#dd3227      
+This is the color Aquarius: 		#16fbde      
+This is the color Holy Cyan: 		#34dddd      
+This is the color Soft Sky: 		#16bbde      
+This is the color Apple Blue: 		#06aacc      
+This is the color Pleasant Lime: 	#addd37      
+This is the color Approval Green: 	#37dd37      
+This is the color Wild Khaki: 		#434112      
+This is the color Flanders Fields: 	#272602      
+This is the color Cripple Creek: 	#262702      
+This is the color Dark Mud: 		#151505      
+This is the color Antracite: 		#222222      
+
+

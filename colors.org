@@ -1,0 +1,9 @@
+* Colors
+<s
+(defun display-color-block (color)
+  "Insert a block of text with the specified background COLOR."
+  (interactive "sEnter color name or hex code (# for hex): #")
+  (let ((text "      ")
+        (face `((t (:background ,color)))))
+    (insert (propertize text 'face face))
+    (insert "\n")))
